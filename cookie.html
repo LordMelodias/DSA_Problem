@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Example</title>
+  <script>
+    // Function to set a cookie (default path behavior)
+    function setCookie() {
+      document.cookie = "username=John"; // Setting a cookie
+      console.log("Cookie set: " + document.cookie); // Debug log
+      alert("Cookie has been set!");
+    }
+    // Function to get a cookie
+    function getCookie() {
+      const cookies = document.cookie; // Retrieve all cookies
+      if (cookies) {
+        alert("Stored Cookies: " + cookies);
+      } else {
+        alert("No cookies found.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Cookie Example (No Path)</h1>
+  <button onclick="setCookie()">Set Cookie</button>
+  <button onclick="getCookie()">Get Cookie</button>
+</body>
+</html>

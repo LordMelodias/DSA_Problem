@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error Handling Example</title>
+</head>
+<body>
+  <button onclick="handleError()">Click to Test Error</button>
+  
+  <script>
+    function handleError() {
+      try {
+        let result = riskyFunction();
+        console.log(result);
+      } catch (error) {
+        console.log("An error occurred: " + error.message);
+      }
+    }
+
+    function riskyFunction() {
+      throw new Error("This is a custom error!");
+    }
+  </script>
+</body>
+</html>

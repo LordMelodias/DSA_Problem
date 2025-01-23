@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Navigation Example</title>
+</head>
+<body>
+  <div>
+    <p id="first">First Paragraph</p>
+    <p id="second">Second Paragraph</p>
+    <p id="third">Third Paragraph</p>
+  </div>
+  
+  <button onclick="navigateDOM()">Navigate DOM</button>
+
+  <script>
+    function navigateDOM() {
+      const second = document.getElementById("second");
+      console.log(second.previousElementSibling.textContent); // First Paragraph
+      console.log(second.nextElementSibling.textContent); // Third Paragraph
+    }
+  </script>
+</body>
+</html>
