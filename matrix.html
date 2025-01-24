@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Transpose</title>
+    <script>
+        function generateMatrix() {
+            const rows = document.getElementById("rows").value;
+            const cols = document.getElementById("cols").value;
+            let matrixHTML = '';
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    matrixHTML += `<input type="number" id="element-${i}-${j}" />`;
+                }
+                matrixHTML += '<br>';
+            }
+            document.getElementById("matrixDiv").innerHTML = matrixHTML;
+            document.getElementById("computeButton").style.display = 'inline';
+        }
+
+        function computeTranspose() {
+            const rows = document.getElementById("rows").value;
+            const cols = document.getElementById("cols").value;
+            const matrix = [];
+
+            // Collect matrix values
+            for (let i = 0; i < rows; i++) {
+                let row = [];
+                for (let j = 0; j < cols; j++) {
+                    row.push(Number(document.getElementById(`element-${i}-${j}`).value));
+                }
+                matrix.push(row);
+            }
+
+            // Calculate transpose
+            const transpose = matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
+            document.getElementById("result").innerHTML = JSON.stringify(transpose);
+        }
+    </script>
+</head>
+<body>
+    <h2>Matrix Transpose</h2>
+    Rows: <input type="number" id="rows" min="1">
+    Columns: <input type="number" id="cols" min="1">
+    <button onclick="generateMatrix()">Submit</button>
+
+    <div id="matrixDiv"></div>
+    <button id="computeButton" onclick="computeTranspose()" style="display:none;">Compute Transpose</button>
+
+    <div id="result"></div>
+</body>
+</html>
